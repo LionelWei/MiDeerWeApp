@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="logo">米鹿儿童美术馆</view>
+
+  <view class="item" bindtap="onCourseTap" wx:for="{{courses}}" wx:for-item="data">
+      <text class="course-desc">{{data.desc}}</text>
+      <view style="display: flex; flex-direction: row">
+        <text class='course-age'>{{data.age}}</text>
+        <text class='course-age'>{{data.number}}</text>
+      </view>
+  </view>
+
+</view>

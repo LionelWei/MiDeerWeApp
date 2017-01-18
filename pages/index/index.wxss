@@ -1,0 +1,46 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.logo {
+  display: flex;
+  height: 56rpx;
+  padding-left: 12rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  height: 156rpx;
+  padding-left: 12rpx;
+  background-color: transparent;
+  border-bottom:1px solid #f1f2f3;
+}
+
+.course-desc {
+  margin-top: 20rpx;
+}
+
+.course-age {
+  margin-top: 12rpx;
+  margin-right: 12rpx;
+  font-size: 12px
+}
