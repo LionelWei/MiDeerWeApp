@@ -10,8 +10,6 @@
 .logo-image {
   display: flex;
   align-self: center;
-  height: 128rpx;
-  width: 128rpx;
 }
 
 .desc {
@@ -38,3 +36,15 @@
   align-self: center;
 }
 
+.feature-item {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding-bottom: 12rpx;
+}
+
+.feature-item-text {
+  font-size: 30rpx;
+  color: black;
+  margin-left: 12rpx;
+}

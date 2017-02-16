@@ -1,6 +1,6 @@
 <view class="container">
   <view class="logo-part">
-    <image class="logo-image" src="{{logo}}"></image>
+    <image class="logo-image" mode="aspectFit" src="{{logo}}"></image>
   </view>
 
   <view class="desc">
@@ -25,7 +25,24 @@
     <text class="groupText">特色服务</text>
   </view>
   <view class="desc">
-    <text class="descText">{{team}}</text>
+    <view class="feature-item">
+      <icon type="success" size="{{20}}"/>
+      <text class="feature-item-text">0元体验</text>
+    </view>
+    <view class="feature-item">
+      <icon type="success" size="{{20}}"/>
+      <text class="feature-item-text">免费WiFi</text>
+    </view>
+    <view class="feature-item">
+      <icon type="success" size="{{20}}"/>
+      <text class="feature-item-text">主题活动</text>
+    </view>
+    <view class="feature-item">
+      <icon type="success" size="{{20}}"/>
+      <text class="feature-item-text">小班教学</text>
+    </view>
   </view>
+  <view class="group"/>
+
 
 </view>

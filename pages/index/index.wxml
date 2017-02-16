@@ -1,8 +1,8 @@
 
 <!--index.wxml-->
 <view class="container">
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{5000}}">
-    <block wx:for="{{bannerImages}}">
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}">
+    <block wx:for="{{bannerImages}}" wx:key="*this">
       <swiper-item id="{{item.id}}" bindtap="onBannerImageTap">
         <image class="swiper-image" src="{{item.url}}" mode="aspectFill" />
       </swiper-item>
@@ -26,11 +26,20 @@
     </navigator>
   </view>
 
-  <view class="item" bindtap="onCourseTap" wx:for="{{courses}}" wx:for-item="data">
-    <text class="course-desc">{{data.desc}}</text>
-    <view style="display: flex; flex-direction: row">
-      <text class='course-age'>{{data.age}}</text>
-      <text class='course-age'>{{data.number}}</text>
+  <view class="item" bindtap="onCourseTap" wx:for="{{courses}}" wx:for-item="course">
+    <view class="course-container">
+      <image class="course-icon" src="{{course.icon}}" mode="widthFix"/>
+      <view class="course-text">
+        <text class="course-text-name">{{course.courseName}}</text>
+        <view style="display: flex; flex-direction: row">
+          <text class='course-text-desc'>{{course.courseType}} |</text>
+          <text class='course-text-desc'>{{course.ageRange}} |</text>
+          <text class='course-text-desc'>{{course.courseNum}}</text>
+        </view>
+        <block wx:if="{{course.feature}}">
+          <text class="course-feature">人气课程</text>
+        </block>
+      </view>
     </view>
   </view>
   <view class="padding" />
@@ -40,5 +49,21 @@
       <view class="navigator-arrow"></view>
     </navigator>
   </view>
+
+  <view class="contact-container">
+    <contact-button 
+      type="default-light" 
+      size="20"
+      session-from="weapp">
+    </contact-button>
+  </view>
+
   <view class="padding" />
+  <view class="list-item">
+    <view class="navigator">
+      <view class="navigator-text">地址: 太平南路2号日月大厦1603室</view>
+    </view>
+  </view>
+  <map id="map" longitude="118.793990" latitude="32.040110" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"/>
+
 </view>

@@ -1,31 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.logo {
-  display: flex;
-  height: 56rpx;
-  padding-left: 12rpx;
-}
-
 .item {
   display: flex;
   flex-direction: column;
@@ -33,30 +6,48 @@
   padding-left: 30rpx;
   background-color: white;
   border-bottom:1px solid #f1f2f3;
+  justify-content: center;
 }
 
-.course-desc {
+.course-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.course-icon {
+  width: 200rpx;
+}
+
+.course-text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20rpx;
+}
+
+.course-text-name {
   margin-top: 20rpx;
   font-size: 32rpx;
 }
 
-.course-age {
+.course-text-desc {
   margin-top: 12rpx;
   margin-right: 12rpx;
-  font-size: 12px
+  font-size: 24rpx;
+  color: #888888;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
+.course-feature {
+  right: 30rpx;
+  padding: 4rpx;
+  border: 1px solid #F6902B;
+  position: absolute;
+  color: #F6902B;
+  font-size: 24rpx;
 }
 
 .padding {
   height: 32rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center
 }
 
 .list-item {
@@ -113,4 +104,16 @@
   top: 50%;
   margin-top: -8rpx;
   right: 28rpx;
+}
+
+.contact-container {
+  right: 30rpx;
+  bottom: 30rpx;
+  border-radius: 50%;
+  position: absolute;
+  height: 60rpx;
+  width: 60rpx;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  background-color: #F6902B;
 }
