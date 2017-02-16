@@ -17,10 +17,17 @@ var imgUrls = [
   'https://p0.meituan.net/dpdeal/d5c25ca68dcc059addded451e069400960133.jpg'
 ];
 
+var imagesWithId = imgUrls.map((e, i) => {
+  return {
+    url: e,
+    id: i
+  }
+});
+
 Page({
   isClicked: true,
   data: {
-    bannerImages: imgUrls,
+    bannerImages: imagesWithId,
     courses: courses,
     indicatorDots: true
   },
@@ -72,6 +79,10 @@ Page({
         // complete
       }
     })
+  },
+  onBannerImageTap: function(e) {
+    var id = e.currentTarget.id, list = this.data.bannerImages;
+    console.log(id + ' is clicked: ' + list[id].url);
   },
   getData: function () {
     var Diary = bmob.Object.extend("mideer1");

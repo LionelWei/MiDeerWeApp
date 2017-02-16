@@ -1,1 +1,6 @@
-{}
+{
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "品牌介绍",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#F6902B"
+}
