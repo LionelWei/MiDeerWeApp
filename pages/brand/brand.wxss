@@ -1,0 +1,40 @@
+.logo-part {
+  height: 128rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.logo-image {
+  display: flex;
+  align-self: center;
+  height: 128rpx;
+  width: 128rpx;
+}
+
+.desc {
+  background-color: white;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.descText {
+  font-size: 30rpx;
+  color: black;
+}
+
+.group {
+  height: 96rpx;
+  padding-left: 20rpx;
+  display: flex;
+  align-content: center;
+}
+
+.groupText {
+  font-size: 30rpx;
+  color: #888888;
+  text-align: start;
+  align-self: center;
+}
+

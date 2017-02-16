@@ -5,4 +5,13 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  background-color: #f1f2f3;
 } 
+
+.padding {
+  height: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}

@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="logo-part">
+    <image class="logo-image" src="{{logo}}"></image>
+  </view>
+
+  <view class="desc">
+    <text class="descText">{{overview}}</text>
+  </view>
+
+  <view class="group">
+    <text class="groupText">创立时间</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{sinceTime}}</text>
+  </view>
+
+  <view class="group">
+    <text class="groupText">师资力量</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{team}}</text>
+  </view>
+
+  <view class="group">
+    <text class="groupText">特色服务</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{team}}</text>
+  </view>
+
+</view>

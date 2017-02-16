@@ -1,6 +1,31 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="logo">米鹿儿童美术馆</view>
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}"
+    autoplay="{{true}}" interval="{{5000}}">
+    <block wx:for="{{bannerImages}}">
+      <swiper-item>
+        <image class="swiper-image" src="{{item}}" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="padding"/>
+  <view class="list-item" bindtap="onBrandTap">
+    <text class="list-item-text-main">品牌介绍</text>
+    <view class="list-item-right-reverse">
+      <view class="list-item-arrow"></view>
+    </view>
+  </view>
+
+  <view class="padding"/>
+  <view class="list-item">
+    <text class="list-item-text-main">课程介绍</text>
+    <view class="list-item-right-reverse">
+      <view class="list-item-arrow"></view>
+      <text class="list-item-text-sub">查看更多课程</text>
+    </view> 
+  </view>
+
   <view class="item" bindtap="onCourseTap" wx:for="{{courses}}" wx:for-item="data">
       <text class="course-desc">{{data.desc}}</text>
       <view style="display: flex; flex-direction: row">
@@ -8,4 +33,15 @@
         <text class='course-age'>{{data.number}}</text>
       </view>
   </view>
+
+  <view class="padding"/>
+  <view class="list-item">
+    <text class="list-item-text-main">师资介绍</text>
+    <view class="list-item-right-reverse">
+      <view class="list-item-arrow"></view>
+    </view>
+  </view>
+
+  <view class="padding"/>
+
 </view>

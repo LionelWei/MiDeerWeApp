@@ -14,9 +14,11 @@ var courseOverView = [
 Page({
   data: {
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+  'https://p1.meituan.net/dpdeal/2d2450529fd38d5363fb3882528e151a76430.jpg',
+  'https://p1.meituan.net/dpdeal/0adc683a3efc6e6a54de618b66014fe12593493.jpg',
+  'https://p1.meituan.net/dpdeal/6fb12fde5d0cea480bdf5939bc0c0c114306877.jpg',
+  'https://p0.meituan.net/dpdeal/c8dc99b9fee2e0ae0941a4d1896c9ae43945579.jpg',
+  'https://p0.meituan.net/dpdeal/d5c25ca68dcc059addded451e069400960133.jpg'
     ],
     indicatorDots: true,
     autoplay: true,

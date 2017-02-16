@@ -31,12 +31,13 @@
   flex-direction: column;
   height: 156rpx;
   padding-left: 12rpx;
-  background-color: transparent;
+  background-color: white;
   border-bottom:1px solid #f1f2f3;
 }
 
 .course-desc {
   margin-top: 20rpx;
+  font-size: 32rpx;
 }
 
 .course-age {
@@ -44,3 +45,75 @@
   margin-right: 12rpx;
   font-size: 12px
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.padding {
+  height: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.list-item {
+  height: 96rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #f1f2f3;
+}
+
+.list-item-text-main {
+  display: flex;
+  padding-left: 12rpx;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 2em;
+}
+
+.list-item-text-sub {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  font-size: 26rpx;
+  color: #888888;
+  right: 50rpx;
+}
+
+.list-item-right-reverse {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-right: 28rpx;
+}
+
+.list-item-arrow {
+  content: " ";
+  display: flex;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  margin-left: 12rpx;
+}
+
+
+.swpier{  
+  height:400rpx;  
+  width:100%  
+}
+
+.swiper-image {  
+  height: 100%;  
+  width: 100%;  
+}  
