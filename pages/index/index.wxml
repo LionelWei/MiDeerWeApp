@@ -59,11 +59,21 @@
   </view>
 
   <view class="padding" />
-  <view class="list-item">
+  <view class="list-item" bindtap="openLocation">
     <view class="navigator">
-      <view class="navigator-text">地址: 太平南路2号日月大厦1603室</view>
+      <image class="location-image" src="/image/icon_map_marker.png"/>
+      <view class="navigator-text">{{address}}</view>
+      <view class="navigator-arrow"></view>
     </view>
   </view>
-  <map id="map" longitude="118.793990" latitude="32.040110" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"/>
 
+  <view class="list-item" bindtap="callTelephone">
+    <view class="navigator">
+      <image class="location-image" src="/image/icon_telephone.png"/>
+      <view class="navigator-text">{{phoneNumber}}</view>
+      <view class="navigator-arrow"></view>
+    </view>
+  </view>
+
+  <view class="padding" />
 </view>

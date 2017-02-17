@@ -110,10 +110,17 @@
   right: 30rpx;
   bottom: 30rpx;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   height: 60rpx;
   width: 60rpx;
   padding-left: 20rpx;
   padding-top: 20rpx;
   background-color: #F6902B;
+  z-index: 10;
+}
+
+.location-image {
+  height: 40rpx;  
+  width: 40rpx;
+  margin-right: 12rpx;
 }
