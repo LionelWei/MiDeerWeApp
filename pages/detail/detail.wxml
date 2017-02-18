@@ -1,17 +1,38 @@
 <view class="container">
-  <view>{{courseTitle}}</view>
-  <swiper indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" height="150"/>
+  <view class="group">
+    <text class="groupText">作品展示</text>
+  </view>
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{false}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this" wx:for-index="idx">
+      <swiper-item id="{{idx}}" bindtap="onBannerImageTap">
+        <image class="swiper-image" src="{{item}}" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
-  <view style="margin: 12rpx 0 0 0">
-    课程大纲:
+
+  <view class="group">
+    <text class="groupText">教学对象</text>
   </view>
-  <text style="margin: 2rpx; font:normal bold 12px/20px arial,sans-serif;">
-    {{courseOverView}}
-  </text>
+  <view class="desc">
+    <text class="descText">{{teachSubject}}</text>
+  </view>
+  <view class="group">
+    <text class="groupText">课程大纲</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{courseOutline}}</text>
+  </view>
+  <view class="group">
+    <text class="groupText">总课时数</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{courseNumDesc}}</text>
+  </view>
+  <view class="group">
+    <text class="groupText">单次课时长</text>
+  </view>
+  <view class="desc">
+    <text class="descText">{{lessonTime}}</text>
+  </view>
+  <view class="padding"/>
 </view>

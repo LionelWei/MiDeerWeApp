@@ -1,14 +1,13 @@
 
 <!--index.wxml-->
 <view class="container">
-  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{5000}}">
     <block wx:for="{{bannerImages}}" wx:key="*this">
       <swiper-item id="{{item.id}}" bindtap="onBannerImageTap">
         <image class="swiper-image" src="{{item.url}}" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
-
   <view class="padding" />
   <view class="list-item">
     <navigator url="../brand/brand" class="navigator">
@@ -16,19 +15,17 @@
       <view class="navigator-arrow"></view>
     </navigator>
   </view>
-
   <view class="padding" />
   <view class="list-item">
-    <navigator url="../detail/detail" class="navigator">
+    <navigator url="../courseSchedule/courseSchedule" class="navigator">
       <view class="navigator-text">课程介绍</view>
-      <view class="navigator-right-text">查看更多课程</view>
+      <view class="navigator-right-text">课程表</view>
       <view class="navigator-arrow"></view>
     </navigator>
   </view>
-
-  <view class="item" bindtap="onCourseTap" wx:for="{{courses}}" wx:for-item="course">
-    <view class="course-container">
-      <image class="course-icon" src="{{course.icon}}" mode="widthFix"/>
+  <view class="item" wx:for="{{courses}}" wx:for-item="course" wx:for-index="idx">
+    <view id="{{idx}}"  bindtap="onCourseTap" class="course-container">
+      <image class="course-icon" src="{{course.icon}}" mode="widthFix" />
       <view class="course-text">
         <text class="course-text-name">{{course.courseName}}</text>
         <view style="display: flex; flex-direction: row">
@@ -41,39 +38,39 @@
         </block>
       </view>
     </view>
-  </view>
+  </view> 
   <view class="padding" />
   <view class="list-item">
-    <navigator url="../brand/brand" class="navigator">
+    <view class="navigator">
       <view class="navigator-text">师资介绍</view>
-      <view class="navigator-arrow"></view>
-    </navigator>
+    </view>
   </view>
-
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+    <block wx:for="{{teachers}}" wx:key="*this">
+      <view id="{{item.id}}" class="scroll-view-item_H" bindtap="onTeacherTap">
+      <image class="scroll-view-item_H-image" src="{{item.url}}" mode="aspectFill" />
+      <text class="scroll-view-item_H-text">{{item.name}}</text>
+      </view>
+    </block>
+  </scroll-view>
   <view class="contact-container">
-    <contact-button 
-      type="default-light" 
-      size="20"
-      session-from="weapp">
+    <contact-button type="default-light" size="20" session-from="weapp">
     </contact-button>
   </view>
-
   <view class="padding" />
   <view class="list-item" bindtap="openLocation">
     <view class="navigator">
-      <image class="location-image" src="/image/icon_map_marker.png"/>
+      <image class="location-image" src="/image/icon_map_marker.png" />
       <view class="navigator-text">{{address}}</view>
       <view class="navigator-arrow"></view>
     </view>
   </view>
-
   <view class="list-item" bindtap="callTelephone">
     <view class="navigator">
-      <image class="location-image" src="/image/icon_telephone.png"/>
+      <image class="location-image" src="/image/icon_telephone.png" />
       <view class="navigator-text">{{phoneNumber}}</view>
       <view class="navigator-arrow"></view>
     </view>
   </view>
-
   <view class="padding" />
 </view>

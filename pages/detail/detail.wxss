@@ -1,0 +1,40 @@
+.desc {
+  background-color: white;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.descText {
+  font-size: 30rpx;
+  color: black;
+}
+
+.group {
+  height: 96rpx;
+  padding-left: 20rpx;
+  display: flex;
+  align-content: center;
+}
+
+.groupText {
+  font-size: 30rpx;
+  color: #888;
+  text-align: start;
+  align-self: center;
+}
+
+.detail-image {
+  height: 400rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.swpier{  
+  height:600rpx;  
+  width:100%  
+}
+
+.swiper-image {  
+  height: 100%;  
+  width: 100%;  
+}  
+

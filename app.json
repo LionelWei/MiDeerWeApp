@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/detail/detail",
     "pages/my/my",
-    "pages/brand/brand"
+    "pages/brand/brand",
+    "pages/bannerDetail/bannerDetail",
+    "pages/courseSchedule/courseSchedule"
   ],
   "window":{
     "backgroundTextStyle":"light",

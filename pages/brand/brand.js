@@ -8,7 +8,7 @@ var teamDesc = '老师均毕业于专业艺术类院校，不仅拥有过硬的�
 
 var features = ['0元体验', '免费wifi', '主题活动', '小班教学'];
 
-var logo = 'http://p1.meituan.net/wedding/f1bb8ff0063bb8f83bea28e3b909d0b976643.jpg'
+var logo = '/image/mideer-logo.jpg'
 Page({
   data: {
       overview: overviewDesc,
@@ -17,7 +17,7 @@ Page({
       features: features,
       logo: logo
   },
-  onLoad: function () {
+  onLoad: function (options) {
     console.log('onLoad')
   },
 })

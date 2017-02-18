@@ -124,3 +124,36 @@
   width: 40rpx;
   margin-right: 12rpx;
 }
+
+.scroll-view_H{
+  white-space: nowrap;
+  background-color: white
+}
+
+.scroll-view-item_H{
+  display: inline-block;
+  width: 200rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-bottom: 40rpx;
+  height: 300rpx;
+}
+.scroll-view-item_H-image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-view-item_H-text{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.scroll-view-item_H-left-margin {
+  margin-left: 10rpx;
+}

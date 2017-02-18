@@ -1,17 +1,20 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var bmob = require('../../bmob/bmob.js');
+import model from '../../model/model';
 
 const PHONE_NUMBER = "18013914800";
 const ADDRESS = "太平南路2号日月大厦1603室";
 const COMPANY = "米鹿儿童美术馆";
 
+const CONSTANT = model.CONSTANT;
+
 Page({
-  isClicked: true,
   data: {
-    bannerImages: null,
-    courses: null,
+    bannerImages: CONSTANT.DEFAULT_BANNER_IMAGE,
+    indicatorDots: false,
+    courses: [],
+    teachers: [],
     phoneNumber: PHONE_NUMBER,
     address: ADDRESS,
   },
@@ -34,10 +37,21 @@ Page({
     })
     this.updateData();
   },
-  onCourseTap: function () {
+  onCourseTap: function (e) {
+    let id = e.currentTarget.id;
+    console.log('onCourseTap: ' + JSON.stringify(e, null, 2));
     // wx.showModal({title: "u r clicked"})
+
+    let course = this.data.courses[id];
+    let navUrl = '../detail/detail?'
+     + 'courseName=' + course.courseName
+     + '&courseOutline=' + course.courseOutline
+     + '&teachSubject=' + course.teachSubject
+     + '&courseNum=' + course.courseNum
+     + '&lessonTime=' + course.lessonTime
+     + '&courseNumDesc=' + course.courseNumDesc;
     wx.navigateTo({
-      url: '../detail/detail',
+      url: navUrl,
       success: function (res) {
         // success
       },
@@ -64,62 +78,65 @@ Page({
       }
     })
   },
-  onBannerImageTap: function(e) {
+  onBannerImageTap: function (e) {
     var id = e.currentTarget.id, list = this.data.bannerImages;
-    console.log(id + ' is clicked: ' + list[id].url);
-  },
-  updateData: function () {
-    this.getBanner();
-    this.getCourses();
-  },
-  getBanner: function() {
-    var query = new bmob.Query(bmob.Object.extend("res"));
-    var that = this;
-    // 查询所有数据
-    query.equalTo('showAt', 'banner');
-    query.find({
-      success: function (results) {
-        var images = results.map((e, i) => {
-          return {
-            url: e.get('url')._url,
-            id: i,
-          }
-        })
-        that.setData({
-          bannerImages: images
-        })
+    var imageUrls = this.data.bannerImages.map((e) => e.url);
+    wx.navigateTo({
+      url: '../bannerDetail/bannerDetail?firstId=' + id,
+      success: function (res) {
+        // success
       },
-      error: function (error) {
-        console.log("查询失败: " + error.code + " " + error.message);
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
       }
     });
   },
-  getCourses: function() {
-    var query = new bmob.Query(bmob.Object.extend("courses"));
-    var that = this;
-    // 查询所有数据
-    query.find({
-      success: function (results) {
-        var courses = results.map((e, i) => {
-          return {
-            courseType: e.get('courseType'),
-            courseNum: e.get('courseNum'),
-            courseName: e.get('courseName'),
-            ageRange: e.get('ageRange'),
-            icon: e.get('courseFirstImage')._url,
-            feature: e.get('feature'),
-          }
-        })
-        that.setData({
-          courses: courses
-        })
-      },
-      error: function (error) {
-        console.log("查询失败: " + error.code + " " + error.message);
-      }
-    });    
+  onTeacherTap: function (e) {
+    var id = e.currentTarget.id;
+    console.log('tap id: ' + id)
+    wx.showModal({
+      title: this.data.teachers[id].name,
+      content: this.data.teachers[id].description,
+      showCancel: false,
+    })
   },
-  openLocation: function(e) {
+  updateData: function () {
+    this.updateBanner();
+    this.updateCourses();
+    this.updateTeacher();
+  },
+  updateBanner: function () {
+    model.getBannerImages(result => {
+      this.setData({
+        bannerImages: result,
+        indicatorDots: true,
+      })
+    }, error => {
+      console.log("查询失败: " + error.code + " " + error.message);
+    })
+  },
+  updateCourses: function () {
+    model.getCourses(result => {
+      this.setData({
+        courses: result
+      })
+    }, err => {
+      console.log("查询失败: " + error.code + " " + error.message);
+    });
+  },
+  updateTeacher: function () {
+    model.getTeachers(result => {
+      this.setData({
+        teachers: result
+      })
+    }, err => {
+      console.log("查询失败: " + error.code + " " + error.message);
+    })
+  },
+  openLocation: function (e) {
     wx.openLocation({
       latitude: 32.040110, // 纬度，范围为-90~90，负数表示南纬
       longitude: 118.793990, // 经度，范围为-180~180，负数表示西经

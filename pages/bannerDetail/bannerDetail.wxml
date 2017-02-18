@@ -1,0 +1,9 @@
+<view class="container">
+  <swiper class="swiper" style="height: 100vh" indicator-dots="{{true}}" autoplay="{{false}}" current="{{firstId}}">
+    <block wx:for="{{bannerImages}}" wx:key="*this">
+      <swiper-item id="{{item.id}}" bindtap="onBannerImageTap">
+        <image class="swiper-image" src="{{item.url}}" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

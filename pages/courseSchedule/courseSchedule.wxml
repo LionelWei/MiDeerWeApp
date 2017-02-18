@@ -1,0 +1,7 @@
+<view class="container">
+  <swiper class="swiper" style="height: 100vh" indicator-dots="{{false}}" autoplay="{{false}}" current="{{firstId}}">
+    <swiper-item bindtap="onScheduleImageTap">
+    <image class="swiper-image" src="{{scheduleImage}}" mode="aspectFit" />
+    </swiper-item>
+  </swiper>
+</view>
