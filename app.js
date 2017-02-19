@@ -1,5 +1,5 @@
 //app.js
-var Bmob = require('bmob/bmob.js');
+import model from './model/model';
 
 App({
   onLaunch: function () {
@@ -7,7 +7,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    Bmob.initialize("21c320c8e99d2c7de378f55a519dde77", "df80f963795fca9dcdf70ac28449f70e");
+    model.init();
   },
   getUserInfo:function(cb){
     var that = this

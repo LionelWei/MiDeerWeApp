@@ -1,4 +1,4 @@
-var bmob = require('../bmob/bmob.js');
+var bmob = require('./bmob/bmob.js');
 
 function getBannerImages(successFn, errFn) {
     var query = new bmob.Query(bmob.Object.extend("res"));
@@ -12,7 +12,7 @@ function getBannerImages(successFn, errFn) {
                     id: i,
                 }
             })
-            
+
             if (typeof successFn === 'function') {
                 successFn(images);
             }

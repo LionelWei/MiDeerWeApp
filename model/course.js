@@ -1,4 +1,4 @@
-var bmob = require('../bmob/bmob.js');
+var bmob = require('./bmob/bmob.js');
 
 function getCourses(successFn, errFn) {
     var query = new bmob.Query(bmob.Object.extend("courses"));
