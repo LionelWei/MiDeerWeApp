@@ -3,24 +3,16 @@ var bmob = require('./bmob/bmob.js');
 function getBannerImages(successFn, errFn) {
     var query = new bmob.Query(bmob.Object.extend("res"));
     // 查询所有数据
-    query.equalTo('showAt', 'banner');
+    query.equalTo('showAt', 'banner').ascending('order');
     query.find({
         success: results => {
             var images = results.map((e, i) => {
-                return {
-                    url: e.get('url')._url,
-                    id: i,
-                }
+                return e.get('url')._url;
             })
-
-            if (typeof successFn === 'function') {
-                successFn(images);
-            }
+            successFn(images);
         },
         error: error => {
-            if (typeof errFn === 'function') {
-                errFn(error);
-            }
+            errFn(error);
         }
     });
 }

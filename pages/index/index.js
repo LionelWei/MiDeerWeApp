@@ -7,11 +7,11 @@ const PHONE_NUMBER = "18013914800";
 const ADDRESS = "太平南路2号日月大厦1603室";
 const COMPANY = "米鹿儿童美术馆";
 
-const CONSTANT = model.CONSTANT;
+const DEFAULT_BANNER_IMAGE = model.DEFAULT_BANNER_IMAGE;
 
 Page({
   data: {
-    bannerImages: CONSTANT.DEFAULT_BANNER_IMAGE,
+    bannerImages: DEFAULT_BANNER_IMAGE,
     indicatorDots: false,
     courses: [],
     teachers: [],
@@ -26,6 +26,7 @@ Page({
   },
   onLoad: function () {
     console.log('onLoad')
+    wx.showNavigationBarLoading();
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
@@ -33,18 +34,15 @@ Page({
       that.setData({
         userInfo: userInfo
       })
-      console.log(JSON.stringify(userInfo, null, 2));
     })
     this.updateData();
   },
   onCourseTap: function (e) {
     let id = e.currentTarget.id;
-    console.log('onCourseTap: ' + JSON.stringify(e, null, 2));
-    // wx.showModal({title: "u r clicked"})
-
     let course = this.data.courses[id];
     let navUrl = '../detail/detail?'
-     + 'courseName=' + course.courseName
+     + 'courseId=' + course.courseId
+     + '&courseName=' + course.courseName
      + '&courseOutline=' + course.courseOutline
      + '&teachSubject=' + course.teachSubject
      + '&courseNum=' + course.courseNum
@@ -79,10 +77,12 @@ Page({
     })
   },
   onBannerImageTap: function (e) {
-    var id = e.currentTarget.id, list = this.data.bannerImages;
-    var imageUrls = this.data.bannerImages.map((e) => e.url);
+    var id = e.currentTarget.id;
+    var imageUrls = this.data.bannerImages;
     wx.navigateTo({
-      url: '../bannerDetail/bannerDetail?firstId=' + id,
+      url: '../bannerDetail/bannerDetail?'
+      + 'firstId=' + id
+      + '&imgs=' + imageUrls,
       success: function (res) {
         // success
       },
@@ -114,6 +114,7 @@ Page({
         bannerImages: result,
         indicatorDots: true,
       })
+      wx.hideNavigationBarLoading();
     }, error => {
       console.log("查询失败: " + error.code + " " + error.message);
     })

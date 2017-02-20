@@ -3,7 +3,7 @@
     <text class="groupText">作品展示</text>
   </view>
   <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{false}}">
-    <block wx:for="{{imgUrls}}" wx:key="*this" wx:for-index="idx">
+    <block wx:for="{{imageUrls}}" wx:key="*this" wx:for-index="idx">
       <swiper-item id="{{idx}}" bindtap="onBannerImageTap">
         <image class="swiper-image" src="{{item}}" mode="aspectFill" />
       </swiper-item>

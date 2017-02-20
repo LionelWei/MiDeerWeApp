@@ -15,8 +15,6 @@ function getTeachers(successFn, errFn) {
                 }
             })
 
-            console.log('teachers: ' + JSON.stringify(images, null, 2));
-
             if (typeof successFn === 'function') {
                 successFn(images);
             }

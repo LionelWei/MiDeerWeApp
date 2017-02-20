@@ -3,7 +3,7 @@ var app = getApp();
 
 Page({
   data: {
-    bannerImages: [],
+    bannerImages: model.DEFAULT_BANNER_IMAGE,
     firstId: 0,
   },
   onLoad: function (options) {
@@ -11,16 +11,13 @@ Page({
     if ('firstId' in options) {
       firstId = options['firstId'];
     }
-    this.updateBanner(firstId);
-  },
-  updateBanner: function(firstId) {
-    model.getBannerImages(result => {
-      this.setData({
-        bannerImages: result,
-        firstId: firstId,
-      });
-    }, error => {
-      console.log("查询失败: " + error.code + " " + error.message);
+    let imgs = [];
+    if ('imgs' in options) {
+      imgs = options['imgs'].split(',');
+    }
+    this.setData({
+        bannerImages: imgs,
+        firstId: firstId,      
     })
   },
   onBannerImageTap: function(e) {

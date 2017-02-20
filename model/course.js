@@ -2,12 +2,13 @@ var bmob = require('./bmob/bmob.js');
 
 function getCourses(successFn, errFn) {
     var query = new bmob.Query(bmob.Object.extend("courses"));
-    var that = this;
+    query.ascending('order');
     // 查询所有数据
     query.find({
         success: function (results) {
             var courses = results.map((e, i) => {
                 return {
+                    courseId: e.get('courseId'),
                     courseType: e.get('courseType'),
                     courseNum: e.get('courseNum'),
                     courseName: e.get('courseName'),
@@ -20,10 +21,7 @@ function getCourses(successFn, errFn) {
                     courseNumDesc: e.get('courseNumDescription'),
                 }
             });
-
-            if (typeof successFn === 'function') {
-                successFn(courses);
-            }
+            successFn(courses);
         },
         error: function (error) {
             console.log("查询失败: " + error.code + " " + error.message);
@@ -34,6 +32,24 @@ function getCourses(successFn, errFn) {
     });
 }
 
+function getCourseResource(courseId, successFn, errFn) {
+    var query = new bmob.Query(bmob.Object.extend("courseRes")).equalTo('courseId', courseId).ascending('order');
+    query.find({
+        success: (result) => {
+            var images = result.map((e, i) => {
+                return e.get('imageUrl')._url;
+            })
+            successFn(images); 
+        },
+        error: (error) => {
+            errFn({code: error.code, message: error.message});
+        }
+    })
+    
+    
+}
+
 module.exports = {
-    getCourses
+    getCourses,
+    getCourseResource
 };
